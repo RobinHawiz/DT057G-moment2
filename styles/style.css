@@ -1,0 +1,326 @@
+/* Tar bort webbläsarens standardstilar för element */
+* {
+  /* Margin är mellanrummet som skapas utifrån elementet. */
+  margin: 0;
+  /* Padding är mellanrummet som skapas innifrån elementet. */
+  padding: 0;
+  /* border-box gör att elementet aldrig blir större än den angivna width/height när man lägger till padding. */
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  /* Om jag skulle använda mig av listor så tas alla standardstilar bort. */
+  list-style: none;
+  /* Används när man ex vill ta bort standard decorationen för länkar. */
+  text-decoration: none;
+}
+
+/* font-size för hela documentet blir 10px */
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Muli", sans-serif;
+  color: #333333;
+  overflow-y: hidden;
+}
+
+p {
+  font-size: 2rem;
+}
+
+a {
+  font-size: 2rem;
+  color: #515151;
+}
+
+li {
+  text-align: center;
+}
+
+/* --------------------------Navigationen-------------------------- */
+
+header {
+  /* vh - viewport height */
+  min-height: 10vh;
+  /* Flexbox används för positionering av element. */
+  /* !!!! OBS !!!! Man bör använda sig av olika prefixes för flexbox: https://caniuse.com/?search=flexbox 
+  Men för just denna uppgift avstår jag från att göra det,
+  då att sätta prefixes överallt tar tid och jag använder mig helst av SASS som låter mig andända @mixin, vilket kan definiera stilar som man ofta återanvänder.
+  */
+  /* Flexbox documentation: https://css-tricks.com/snippets/css/a-guide-to-flexbox/ */
+
+  display: flex;
+  align-items: center;
+}
+
+nav {
+  /* Sätter sidans struktur (width och margin) */
+  min-height: 100%;
+  width: 90%;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.logo {
+  flex-grow: 1;
+  text-align: center;
+}
+
+.logo img {
+  height: 7.5rem;
+  width: 8rem;
+}
+
+ul {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-grow: 2;
+}
+
+ul li a {
+  padding: 1rem;
+  border-radius: 1rem;
+}
+
+.active {
+  color: #ffffff;
+  background-color: #515151;
+}
+
+/* Dropdown */
+
+.dropdown-content {
+  padding-top: 2rem;
+  position: absolute;
+  display: none;
+}
+
+.dropdown-content li {
+  padding: 1rem 0 1rem 0;
+}
+
+li.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* --------------------------Footer-------------------------- */
+
+footer {
+  min-height: 10vh;
+  display: flex;
+}
+
+.footer-wrapper {
+  width: 90%;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+h4 {
+  font-size: 2rem;
+  text-align: center;
+  font-weight: inherit;
+}
+
+.social-links a {
+  text-align: center;
+  font-size: 2rem;
+}
+
+/* --------------------------Blogg innehåll-------------------------- */
+
+.blogg {
+  min-height: 80vh;
+  width: 90%;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+article {
+  width: 50rem;
+  margin: 0rem 2rem 0rem 2rem;
+}
+
+.nyhets-bild {
+  width: 100%;
+  text-align: center;
+}
+
+/* 1rem = 10px */
+/* Bilderna blir som specifierat i uppgiften 200x120 pixlar i storlek */
+.nyhets-bild img {
+  width: 20rem;
+  height: 12rem;
+}
+
+h1 {
+  font-size: 3.5rem;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+h2 {
+  font-size: 3rem;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+h3 {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-top: 2rem;
+}
+
+article p {
+  font-size: 2rem;
+  padding: 1rem;
+}
+
+/* --------------------------Courses innehåll-------------------------- */
+
+.courses-page {
+  min-height: 80vh;
+  width: 90%;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+th,
+td {
+  border: 1px solid #000000;
+  padding: 8px 10px;
+  font-size: 2rem;
+}
+
+th {
+  text-align: center;
+}
+
+tfoot th {
+  text-align: left;
+}
+
+/* --------------------------Pictures, Pictures2, Pictures3 innehåll-------------------------- */
+
+.foto-gallery {
+  width: 90%;
+  height: 80vh;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  overflow-y: hidden;
+}
+
+.foto-gallery img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.image-container {
+  width: 50rem;
+}
+
+/* --------------------------Contact innehåll-------------------------- */
+
+.contact-page {
+  width: 90%;
+  margin: auto;
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.contact-info h1 {
+  margin-bottom: 3rem;
+}
+
+form {
+  min-height: 30rem;
+  min-width: 40rem;
+}
+
+form label,
+form input {
+  font-size: 2rem;
+}
+
+form input {
+  font-family: "Muli", sans-serif;
+  color: #333333;
+}
+
+.name-input,
+.email-input,
+.profession-input,
+.newsletter-input,
+.employee-input {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 1rem 0 1rem 0;
+}
+
+.message-input {
+  margin: 1rem 0 1rem 0;
+}
+
+.message-input label {
+  display: block;
+}
+
+.name-input input,
+.email-input input,
+.profession-input select {
+  width: 25rem;
+}
+
+/* checkbox är 14 pixlar bred i min firefox webbläsare. Tar inte hänsyn till andra webbläsare för just denna uppgift.*/
+.newsletter-input input {
+  margin-right: calc(25rem - 1.4rem);
+}
+
+/* Elementet med classen radio-buttons är 85 pixlar bred i min firefox webbläsare. Tar inte hänsyn till andra webbläsare för just denna uppgift.*/
+.radio-buttons {
+  margin-right: calc(25rem - 8.5rem);
+}
+
+form button {
+  font-size: 1.5rem;
+}
+
+/* --------------------------Om innehåll-------------------------- */
+
+.about-page {
+  min-height: 80vh;
+  width: 90%;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.about-info,
+.about-image-container {
+  margin: 0 5rem 0 5rem;
+}
+
+.about-info {
+  width: 50rem;
+  display: block;
+}
